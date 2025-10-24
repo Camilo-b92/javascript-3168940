@@ -1,0 +1,305 @@
+/* ESCENARIO 1 */
+
+body {
+  background-color: #0a0a0a;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  padding: 40px 0;
+}
+
+#fondo {
+  background-image: url("img/fondo_infernal.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: auto;
+  width: 750px;
+  height: 500px;
+  border: 3px solid #900;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #900;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.hud {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 15px;
+  z-index: 20;
+}
+
+.contador {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #ff0000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 0 0 10px #ff0000;
+  display: flex;
+  align-items: center;
+}
+
+.contador img {
+  width: 22px;
+  margin-right: 6px;
+}
+
+#demonio1 {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  width: 110px;
+  transition: 0.5s;
+}
+
+#demonio2 {
+  position: absolute;
+  top: 280px;
+  left: 220px;
+  width: 110px;
+  transition: 0.5s;
+}
+
+#demonio3 {
+  position: absolute;
+  top: 140px;
+  left: 420px;
+  width: 110px;
+  transition: 0.5s;
+}
+
+#demonio4 {
+  position: absolute;
+  top: 140px;
+  left: 320px;
+  width: 110px;
+  transition: 0.5s;
+}
+
+@keyframes corazones {
+  0% { transform: translateY(-20px); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(-20px); }
+}
+
+#corazon1 {
+  position: absolute;
+  top: 220px;
+  left: 160px;
+  width: 80px;
+  transition: 0.5s;
+  animation: corazones 4s ease forwards;
+}
+
+#corazon2 {
+  position: absolute;
+  top: 340px;
+  left: 400px;
+  width: 80px;
+  transition: 0.5s;
+  animation: corazones 4s ease forwards;
+}
+
+.jugador {
+  position: absolute;
+  bottom: 30px;
+  left: 320px;
+  width: 120px;
+  z-index: 10;
+  animation: moverPersonaje 3.5 ease forwards;  
+}
+
+@keyframes personaje {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
+
+.desaparecer {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.saltar {
+  animation: salto 5s ease forwards;
+}
+
+.moverCorazones {
+  animation: corazones 4s ease forwards;
+}
+
+.moverPersonaje {
+  animation: moverPersonaje 3.5 ease forwards;
+}
+
+@keyframes salto {
+  0% { transform: translateY(0); opacity: 1; }
+  30% { transform: translateY(-60px); }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+#gameOver {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ff0000;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 200px;
+  z-index: 999;
+  text-shadow: 0 0 20px #ff0000;
+}
+
+/* ⚔️ ESCENARIO 2 */
+
+#fondo_gow {
+  background-image: url("img/fondo_gow.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: auto;
+  width: 750px;
+  height: 500px;
+  border: 3px solid #b89e74;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #b89e74;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+#fondo_gow .hud .contador {
+  border-color: #b89e74;
+  text-shadow: 0 0 10px #b89e74;
+}
+
+#demonio1_gow, #demonio2_gow, #demonio3_gow, #demonio4_gow {
+  position: absolute;
+  width: 110px;
+  transition: 0.5s;
+}
+
+#demonio1_gow { top: 60px; left: 80px; }
+#demonio2_gow { top: 280px; left: 220px; }
+#demonio3_gow { top: 140px; left: 420px; }
+#demonio4_gow { top: 140px; left: 320px; }
+
+#corazon1_gow, #corazon2_gow {
+  position: absolute;
+  width: 80px;
+  transition: 0.5s;
+  animation: corazones 4s ease forwards;
+}
+
+#corazon1_gow { top: 220px; left: 160px; }
+#corazon2_gow { top: 340px; left: 400px; }
+
+#jugador_gow {
+  position: absolute;
+  bottom: 30px;
+  left: 320px;
+  width: 120px;
+  z-index: 10;
+  animation: moverPersonaje 3.5 ease forwards;  
+}
+
+#gameOver_gow {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #b89e74;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 200px;
+  z-index: 999;
+  text-shadow: 0 0 20px #b89e74;
+}
+
+/* ESCENARIO 3 */
+
+#fondo_dumbo {
+  background-image: url("img/fondo_dumbo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: auto;
+  width: 750px;
+  height: 500px;
+  border: 3px solid pink;
+  border-radius: 10px;
+  box-shadow: 0 0 20px pink;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+#fondo_dumbo .hud .contador {
+  border-color: pink;
+  text-shadow: 0 0 10px pink;
+}
+
+#demonio1_dumbo, #demonio2_dumbo, #demonio3_dumbo, #demonio4_dumbo {
+  position: absolute;
+  width: 110px;
+  transition: 0.5s;
+}
+
+#demonio1_dumbo { top: 60px; left: 80px; }
+#demonio2_dumbo { top: 280px; left: 220px; }
+#demonio3_dumbo { top: 140px; left: 420px; }
+#demonio4_dumbo { top: 140px; left: 320px; }
+
+#corazon1_dumbo, #corazon2_dumbo {
+  position: absolute;
+  width: 80px;
+  transition: 0.5s;
+  animation: corazones 4s ease forwards;
+}
+
+#corazon1_dumbo { top: 220px; left: 160px; }
+#corazon2_dumbo { top: 340px; left: 400px; }
+
+#jugador_dumbo {
+  position: absolute;
+  bottom: 30px;
+  left: 320px;
+  width: 120px;
+  z-index: 10;
+  animation: moverPersonaje 3.5 ease forwards;  
+}
+
+#gameOver_dumbo {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: pink;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 200px;
+  z-index: 999;
+  text-shadow: 0 0 20px pink;
+}
