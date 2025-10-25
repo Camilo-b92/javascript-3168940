@@ -115,7 +115,7 @@ body {
 }
 
 .moverPersonaje{
-  animation: moverPersonaje 3.5 ease forwards;
+  animation: personaje 3.5 ease forwards;
 }
 
 @keyframes salto {
@@ -142,8 +142,9 @@ body {
   0% {
     transform: translateY(0);
   }
+  
   50% {
-    transform: translateY(-40px);
+    transform: translateY(40px);
   }
 
   100% {

@@ -1,19 +1,91 @@
-//1. Captura de variables
-const demonios = document.querySelectorAll(".demonio");
-const puntos = document.querySelector("#puntos");
+// =====================================================
+// 🩸 ESCENARIO 1 - DOOM
+// =====================================================
+const demonios = document.querySelectorAll("#fondo .demonio");
+const corazones = document.querySelectorAll("#fondo .corazon");
+const puntos = document.querySelector("#fondo #puntos");
+const vidas = document.querySelector("#fondo #vidas");
 let contador = 0;
+let contadorVidas = 3;
 
-console.log(demonios, puntos);
-
-//2. Funciones
+// Demonios
 demonios.forEach(item => {
   item.addEventListener("click", () => {
-    item.style.filter = "grayscale(1)";
-    item.classList.add("saltar"); 
-    
+    item.classList.add("saltar"); // animación de desaparición
+    item.style.pointerEvents = "none"; // evita más clics
     contador++;
     puntos.textContent = contador;
   });
 });
 
-//3. Eventos
+// Corazones
+corazones.forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.add("moveCorazones"); // animación de desaparición
+    item.style.pointerEvents = "none";
+    contadorVidas++;
+    vidas.textContent = contadorVidas;
+  });
+});
+
+
+// =====================================================
+// ⚔️ ESCENARIO 2 - GOD OF WAR
+// =====================================================
+const demoniosGow = document.querySelectorAll("#fondo_gow .demonio");
+const corazonesGow = document.querySelectorAll("#fondo_gow .corazon");
+const puntosGow = document.querySelector("#fondo_gow #puntos_gow");
+const vidasGow = document.querySelector("#fondo_gow #vidas_gow");
+let contadorGow = 0;
+let contadorVidasGow = 3;
+
+// Demonios GOW
+demoniosGow.forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.add("saltar");
+    item.style.pointerEvents = "none";
+    contadorGow++;
+    puntosGow.textContent = contadorGow;
+  });
+});
+
+// Corazones GOW
+corazonesGow.forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.add("moverCorazones");
+    item.style.pointerEvents = "none";
+    contadorVidasGow++;
+    vidasGow.textContent = contadorVidasGow;
+  });
+});
+
+
+// =====================================================
+// 🎪 ESCENARIO 3 - DUMBO
+// =====================================================
+const demoniosDumbo = document.querySelectorAll("#fondo_dumbo .demonio");
+const corazonesDumbo = document.querySelectorAll("#fondo_dumbo .corazon");
+const puntosDumbo = document.querySelector("#fondo_dumbo #puntos_dumbo");
+const vidasDumbo = document.querySelector("#fondo_dumbo #vidas_dumbo");
+let contadorDumbo = 0;
+let contadorVidasDumbo = 3;
+
+// Demonios Dumbo
+demoniosDumbo.forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.add("saltar");
+    item.style.pointerEvents = "none";
+    contadorDumbo++;
+    puntosDumbo.textContent = contadorDumbo;
+  });
+});
+
+// Corazones Dumbo
+corazonesDumbo.forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.add("moverCorazones");
+    item.style.pointerEvents = "none";
+    contadorVidasDumbo++;
+    vidasDumbo.textContent = contadorVidasDumbo;
+  });
+});
