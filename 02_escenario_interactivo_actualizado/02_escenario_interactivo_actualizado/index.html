@@ -3,40 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escenarios Interactivos</title>
+  <title>Galería de Escenarios</title>
   <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
 
-  <!-- ESCENARIO 1 -->
+  <!-- ESCENARIO PRINCIPAL (DOOM) -->
 
-  <div id="fondo">
-    <div class="hud">
-      <div class="contador">
-        <img src="img/calavera.png" alt="Icono de puntos">
-        <span id="puntos">0</span>
+  <section class="escena-principal">
+    <button class="boton-nav" id="anterior">⟵</button>
+
+    <div id="fondo">
+      <div class="hud">
+        <div class="contador">
+          <img src="img/calavera.png" alt="Icono de puntos">
+          <span id="puntos">0</span>
+        </div>
+        <div class="contador">
+          <img src="img/corazon.png" alt="Icono de vidas">
+          <span id="vidas">3</span>
+        </div>
       </div>
-      <div class="contador">
-        <img src="img/corazon.png" alt="Icono de vidas">
-        <span id="vidas">3</span>
-      </div>
+
+      <img src="img/Personaje.png" alt="Jugador principal" class="jugador" id="jugador1">
+
+      <img src="img/demonio 1.png" alt="Demonio 1" class="demonio" id="demonio1">
+      <img src="img/demonio 2.png" alt="Demonio 2" class="demonio" id="demonio2">
+      <img src="img/demonio 3.png" alt="Demonio 3" class="demonio" id="demonio3">
+      <img src="img/demonio 4.png" alt="Demonio 4" class="demonio" id="demonio4">
+
+      <img src="img/corazon.png" alt="Corazón 1" class="corazon" id="corazon1">
+      <img src="img/corazon.png" alt="Corazón 2" class="corazon" id="corazon2">
+
     </div>
 
-    <img src="img/Personaje.png" alt="Jugador principal" class="jugador" id="jugador1">
+    <button class="boton-nav" id="siguiente">⟶</button>
+  </section>
 
-    <img src="img/demonio 1.png" alt="Demonio 1" class="demonio" id="demonio1">
-    <img src="img/demonio 2.png" alt="Demonio 2" class="demonio" id="demonio2">
-    <img src="img/demonio 3.png" alt="Demonio 3" class="demonio" id="demonio3">
-    <img src="img/demonio 4.png" alt="Demonio 4" class="demonio" id="demonio4">
+  <!-- MINIATURAS DE ESCENARIOS -->
 
-    <img src="img/corazon.png" alt="Corazón 1" class="corazon" id="corazon1">
-    <img src="img/corazon.png" alt="Corazón 2" class="corazon" id="corazon2">
+  <section class="galeria">
+    <div class="miniatura doom"></div>
+    <div class="miniatura gow"></div>
+    <div class="miniatura dumbo"></div>
+  </section>
 
-    <div id="gameOver" class="game-over">💀 GAME OVER 💀</div>
-  </div>
+  <!-- ESCENARIO 2 (GOD OF WAR) -->
 
-  <!-- ESCENARIO 2 -->
-
+  <!--
   <div id="fondo_gow">
     <div class="hud">
       <div class="contador">
@@ -59,11 +73,12 @@
     <img src="img/reliquia1_gow.png" alt="Reliquia 1" class="corazon" id="corazon1_gow">
     <img src="img/reliquia2_gow.png" alt="Reliquia 2" class="corazon" id="corazon2_gow">
 
-    <div id="gameOver_gow" class="game-over">⚔️ GAME OVER ⚔️</div>
   </div>
+  -->
 
-  <!-- ESCENARIO 3 -->
+  <!-- ESCENARIO 3 (DUMBO) -->
 
+  <!--
   <div id="fondo_dumbo">
     <div class="hud">
       <div class="contador">
@@ -86,8 +101,8 @@
     <img src="img/caramelo1_dumbo.png" alt="Caramelo 1" class="corazon" id="corazon1_dumbo">
     <img src="img/caramelo2_dumbo.png" alt="Caramelo 2" class="corazon" id="corazon2_dumbo">
 
-    <div id="gameOver_dumbo" class="game-over">🎪 FIN DEL SHOW 🎪</div>
   </div>
+  -->
 
   <script src="app2.js"></script>
 </body>

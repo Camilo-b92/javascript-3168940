@@ -1,6 +1,5 @@
-// =====================================================
-// 🩸 ESCENARIO 1 - DOOM
-// =====================================================
+// ESCENARIO 1 - DOOM
+
 const demonios = document.querySelectorAll("#fondo .demonio");
 const corazones = document.querySelectorAll("#fondo .corazon");
 const puntos = document.querySelector("#fondo #puntos");
@@ -11,8 +10,8 @@ let contadorVidas = 3;
 // Demonios
 demonios.forEach(item => {
   item.addEventListener("click", () => {
-    item.classList.add("saltar"); // animación de desaparición
-    item.style.pointerEvents = "none"; // evita más clics
+    item.classList.add("saltar");
+    item.style.pointerEvents = "none";
     contador++;
     puntos.textContent = contador;
   });
@@ -21,21 +20,19 @@ demonios.forEach(item => {
 // Corazones
 corazones.forEach(item => {
   item.addEventListener("click", () => {
-    item.classList.add("moveCorazones"); // animación de desaparición
+    item.classList.add("moveCorazones");
     item.style.pointerEvents = "none";
     contadorVidas++;
     vidas.textContent = contadorVidas;
   });
 });
 
+// ESCENARIO 2 - GOD OF WAR
 
-// =====================================================
-// ⚔️ ESCENARIO 2 - GOD OF WAR
-// =====================================================
 const demoniosGow = document.querySelectorAll("#fondo_gow .demonio");
 const corazonesGow = document.querySelectorAll("#fondo_gow .corazon");
-const puntosGow = document.querySelector("#fondo_gow #puntos_gow");
-const vidasGow = document.querySelector("#fondo_gow #vidas_gow");
+const puntosGow = document.querySelector("#fondo_gow #puntos");
+const vidasGow = document.querySelector("#fondo_gow #vidas");
 let contadorGow = 0;
 let contadorVidasGow = 3;
 
@@ -60,13 +57,12 @@ corazonesGow.forEach(item => {
 });
 
 
-// =====================================================
-// 🎪 ESCENARIO 3 - DUMBO
-// =====================================================
+// ESCENARIO 3 - DUMBO
+
 const demoniosDumbo = document.querySelectorAll("#fondo_dumbo .demonio");
 const corazonesDumbo = document.querySelectorAll("#fondo_dumbo .corazon");
-const puntosDumbo = document.querySelector("#fondo_dumbo #puntos_dumbo");
-const vidasDumbo = document.querySelector("#fondo_dumbo #vidas_dumbo");
+const puntosDumbo = document.querySelector("#fondo_dumbo #puntos");
+const vidasDumbo = document.querySelector("#fondo_dumbo #vidas");
 let contadorDumbo = 0;
 let contadorVidasDumbo = 3;
 
