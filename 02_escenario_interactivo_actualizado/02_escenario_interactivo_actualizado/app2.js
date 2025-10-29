@@ -85,3 +85,55 @@ corazonesDumbo.forEach(item => {
     vidasDumbo.textContent = contadorVidasDumbo;
   });
 });
+
+// 1. Variables //  
+
+const escenas = document.querySelectorAll(".escena")
+const anterior = document.querySelector(".btn-anterior")
+const siguiente = document.querySelector(".btn-siguiente")
+const miniaturas = document.querySelectorAll(".galeria")
+let indice = 0
+
+console.log (escenas)
+console.log (anterior)
+console.log (siguiente)
+console.log (miniaturas)
+
+// 2. Funciones //
+function mostrarEscena(i){
+  //Asigna la clase escena a todas las pantallas//
+  for (let j = 0; j < escenas.length; j++) {
+    escenas[j].classList.remove("activa")
+    
+  }
+
+  escenas[i].classList.add("activa")
+
+  indice = i
+} 
+
+//Para mostrar la pantala 1 al iniciar//
+mostrarEscena(0)
+
+anterior.addEventListener("click",function(){
+    indice = indice -1
+    if (indice < 0) {
+          indice = escenas.length -1
+      
+    }
+    mostrarEscena(indice)
+})
+
+mostrarEscena(0)
+
+siguiente.addEventListener("click",function(){
+    indice = indice +1
+    if (indice >= escenas.length) {
+      indice = 0
+          
+      
+    }
+    mostrarEscena(indice)
+})
+
+
