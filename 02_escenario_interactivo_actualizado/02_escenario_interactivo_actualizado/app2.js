@@ -91,7 +91,7 @@ corazonesDumbo.forEach(item => {
 const escenas = document.querySelectorAll(".escena")
 const anterior = document.querySelector(".btn-anterior")
 const siguiente = document.querySelector(".btn-siguiente")
-const miniaturas = document.querySelectorAll(".galeria")
+const miniaturas = document.querySelectorAll(".miniatura")
 let indice = 0
 
 console.log (escenas)
@@ -136,4 +136,14 @@ siguiente.addEventListener("click",function(){
     mostrarEscena(indice)
 })
 
+//Eventos para cada miniatura//
+miniaturas.forEach(function (miniatura, i){
+  miniatura.addEventListener('click', function() {
+    mostrarEscena(i);
+    console.log(i)
+  }
+)
+})
 
+//Mostramos la primera escena al iniciar//
+mostrarEscena(0);
