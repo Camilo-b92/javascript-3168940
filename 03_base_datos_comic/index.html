@@ -1,23 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix TV Interfaz - Estructura Básica</title>
 </head>
 <body>
-    <li>
-      <ul>Inicio</ul>
-      <ul>Capitulos</ul>
-      <ul>Personajes</ul>
-      <ul>Helikón</ul>
-    </li>
 
-     
+    <div id="app">
+        <aside id="sidebar-nav">
+            <div class="logo">
+                <!-- Aquí iría el logo de Helikón -->
+                <img src="Helikón.jpg" alt="Helikón Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Inicio</a></li>
+                    <li><a href="#search">Buscar</a></li>
+                    <li><a href="#my-list">Capitulos</a></li>
+                    <li><a href="#movies">Personajes</a></li>
+                    <li><a href="#series">Usuario</a></li>
+                    <li><a href="#new-popular">Helikón</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <!-- Aquí iría la imagen de perfil del usuario -->
+                <img src="user_avatar.png" alt="Perfil de Usuario">
+                <span>Nombre de Usuario</span>
+            </div>
+        </aside>
 
+        <main id="main-content">
+            <section id="hero-section">
+                <!-- Aquí iría el trailer de Comic -->
+                <div class="hero-backdrop">
+                    <img src="hero_background.jpg" alt="Fondo del trailer">
+                </div>
+                <div class="hero-details">
+                    <h1>Título del Comic</h1>
+                    <p>Breve descripción del Comic. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="hero-actions">
+                        <button class="play-button">Reproducir</button>
+                        <button class="info-button">Más información</button>
+                    </div>
+                </div>
+            </section>
 
+            <section class="content-row">
+                <h2>Continua viendo donde lo dejaste</h2>
+                <div class="carousel">
+                    <!-- Elementos del carrusel: Capitulos del Comic   -->
+                    <div class="item-card">
+                        <img src="movie_thumbnail_1.jpg" alt="Miniatura del Capitulo 1">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="item-card">
+                        <img src="movie_thumbnail_2.jpg" alt="Miniatura del Capitulo 2">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="item-card">
+                        <img src="movie_thumbnail_3.jpg" alt="Miniatura del Capitulo 3">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <!-- Más tarjetas de películas/series aquí -->
+                </div>
+            </section>
 
-<script src="app.js"></script>
-<script src="bd.js–"></script>
+            <section class="content-row">
+                <h2>Personajes</h2>
+                <div class="carousel">
+                    <!-- Elementos del carrusel: Tarjetas de películas/series -->
+                    <div class="item-card"><img src="trending_thumbnail_1.jpg" alt="Miniatura de película en tendencia 1"></div>
+                    <div class="item-card"><img src="trending_thumbnail_2.jpg" alt="Miniatura de película en tendencia 2"></div>
+                    <div class="item-card"><img src="trending_thumbnail_3.jpg" alt="Miniatura de película en tendencia 3"></div>
+                    
+                    <!-- Más tarjetas segun el contenido que quereremos agegar de la Marca o Comic aquí -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
 </body>
 </html>
