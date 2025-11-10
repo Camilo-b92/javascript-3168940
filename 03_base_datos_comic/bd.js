@@ -16,8 +16,8 @@ let comic = [
       "descripcion": "Dan Jukes",
     },
     {
-      "id": "2",  
-      "nombre": "El De  scubrimiento",
+          "id": "2",  
+          "nombre": "El De  scubrimiento",
       "personajes": 10,
       "portada": "img/molecule.jpg",
       "descripcion": "Dan Jukes",
