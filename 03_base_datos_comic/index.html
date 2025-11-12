@@ -1,74 +1,163 @@
---- START OF FILE index.html ---
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix TV Interfaz - Helikón Comic</title>
-    <!-- Aquí iría tu archivo CSS -->
-    <link rel="stylesheet" href="styles.css"> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helikón Comic - Interfaz</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <div id="app">
-        <aside id="sidebar-nav">
-            <div class="logo">
-                <!-- Aquí iría el logo de Helikón -->
-                <img id="helikon-logo" src="Helikón.jpg" alt="Helikón Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">Inicio</a></li>
-                    <li><a href="#search">Buscar</a></li>
-                    <li><a href="#chapters">Capítulos</a></li>
-                    <li><a href="#characters">Personajes</a></li>
-                    <li><a href="#user-profile-link">Usuario</a></li>
-                    <li><a href="#about-helikon">Helikón</a></li>
-                </ul>
-            </nav>
-            <div class="user-profile">
-                <!-- Aquí iría la imagen de perfil del usuario -->
-                <img id="user-avatar" src="user_avatar.png" alt="Perfil de Usuario">
-                <span id="username">Nombre de Usuario</span>
-            </div>
-        </aside>
-
-        <main id="main-content">
-            <section id="hero-section">
-                <!-- Aquí iría el trailer de Comic o imagen principal -->
-                <div class="hero-backdrop">
-                    <img id="hero-background" src="hero_background.jpg" alt="Fondo del trailer">
-                </div>
-                <div class="hero-details">
-                    <h1 id="hero-title">Título del Comic</h1>
-                    <p id="hero-description">Breve descripción del Comic. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <div class="hero-actions">
-                        <button class="play-button">Reproducir</button>
-                        <button class="info-button">Más información</button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="content-row">
-                <h2>Capítulos</h2>
-                <div id="chapters-carousel" class="carousel">
-                    <!-- Los elementos de capítulos se cargarán aquí con JavaScript -->
-                </div>
-            </section>
-
-            <section class="content-row">
-                <h2>Personajes</h2>
-                <div id="characters-carousel" class="carousel">
-                    <!-- Los elementos de personajes se cargarán aquí con JavaScript -->
-                </div>
-            </section>
-
-        </main>
+  <!-- MENÚ PRINCIPAL -->
+  <header id="main-header">
+    <div class="header-left">
+      <img src="https://picsum.photos/seed/useravatar/60/60" alt="Perfil de Usuario" class="user-avatar" />
+      <span class="username">Usuario</span>
     </div>
 
-    <!-- Script de JavaScript para la lógica de la interfaz y carga de datos -->
-    <script src="bd.js"></script>
-    <script src="script.js"></script> 
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#hero-section" class="active">Inicio</a></li>
+        <li><a href="#search">Buscar</a></li>
+        <li><a href="#chapters">Capítulos</a></li>
+        <li><a href="#characters">Personajes</a></li>
+        <li><a href="#lore-section">Helikón</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <h1 class="logo-text">HELIKÓN</h1>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section id="hero-section">
+      <div class="hero-backdrop">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=80" alt="Fondo del trailer" />
+      </div>
+      <div class="hero-details fade-in">
+        <h1>Helikón: Renacer del Caos</h1>
+        <p>En un universo fracturado por dimensiones, los héroes del Helix emergen para restaurar el equilibrio... o destruirlo.</p>
+        <div class="hero-actions">
+          <button class="play-button">Reproducir</button>
+          <button class="info-button">Más información</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LORE -->
+    <section id="lore-section">
+      <div class="lore-container slide-up">
+        <h2>El Universo de Helikón</h2>
+        <p>
+          Hace milenios, el Helix fue sellado para mantener el equilibrio entre dimensiones. Pero ahora, grietas se abren en los cielos,
+          trayendo consigo antiguos dioses, guerreros desterrados y energías imposibles de contener. Helikón es la última frontera entre la razón y el caos.
+        </p>
+        <img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&w=1200&q=80" alt="Lore del universo" />
+      </div>
+    </section>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider"></div>
+
+    <!-- CAPÍTULOS -->
+    <section class="content-row" id="chapters">
+      <h2>Capítulos</h2>
+      <div class="carousel">
+        <a href="#chapter1" class="item-card fade-in">
+          <img src="https://images.unsplash.com/photo-1633296208188-215da4a1c60e?auto=format&fit=crop&w=600&q=60" alt="Capítulo 1" />
+          <div class="item-info"><h3>Capítulo 1</h3><p>El Inicio del Caos</p></div>
+        </a>
+        <a href="#chapter2" class="item-card fade-in">
+          <img src="https://images.unsplash.com/photo-1601933470928-c4e076b6d72e?auto=format&fit=crop&w=600&q=60" alt="Capítulo 2" />
+          <div class="item-info"><h3>Capítulo 2</h3><p>Sombras del Pasado</p></div>
+        </a>
+        <a href="#chapter3" class="item-card fade-in">
+          <img src="https://images.unsplash.com/photo-1611605698323-b2fa3b99a2be?auto=format&fit=crop&w=600&q=60" alt="Capítulo 3" />
+          <div class="item-info"><h3>Capítulo 3</h3><p>La Ira del Helix</p></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- PERSONAJES -->
+    <section class="content-row" id="characters">
+      <h2>Personajes</h2>
+      <div class="carousel">
+        <a href="#character1" class="item-card fade-in">
+          <img src="https://images.unsplash.com/photo-1611605698330-f676dc08a513?auto=format&fit=crop&w=600&q=60" alt="Kael, el Errante" />
+          <div class="item-info"><h3>Kael</h3><p>El Errante</p></div>
+        </a>
+        <a href="#character2" class="item-card fade-in">
+          <img src="https://images.unsplash.com/photo-1601933470934-98646967f8cf?auto=format&fit=crop&w=600&q=60" alt="Lira, la Hechicera" />
+          <div class="item-info"><h3>Lira</h3><p>La Hechicera</p></div>
+        </a>
+        <a href="#character3" class="item-card fade-in">
+          <img src="https://images.unsplash.com/photo-1633296208191-91f79cb0d2ec?auto=format&fit=crop&w=600&q=60" alt="Draven, el Forjador" />
+          <div class="item-info"><h3>Draven</h3><p>El Forjador</p></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- MODALES (sin cambios) -->
+    <div id="chapter1" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close-btn">✖</a>
+        <h2>Capítulo 1: El Inicio del Caos</h2>
+        <p>El mundo de Helikón se ve envuelto en una guerra dimensional.</p>
+        <img src="https://images.unsplash.com/photo-1633296208188-215da4a1c60e?auto=format&fit=crop&w=800&q=80" alt="Capítulo 1" />
+      </div>
+    </div>
+
+    <div id="chapter2" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close-btn">✖</a>
+        <h2>Capítulo 2: Sombras del Pasado</h2>
+        <p>Los secretos del Helix salen a la luz.</p>
+        <img src="https://images.unsplash.com/photo-1601933470928-c4e076b6d72e?auto=format&fit=crop&w=800&q=80" alt="Capítulo 2" />
+      </div>
+    </div>
+
+    <div id="chapter3" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close-btn">✖</a>
+        <h2>Capítulo 3: La Ira del Helix</h2>
+        <p>Un poder olvidado despierta bajo las ruinas de Helikón.</p>
+        <img src="https://images.unsplash.com/photo-1611605698323-b2fa3b99a2be?auto=format&fit=crop&w=800&q=80" alt="Capítulo 3" />
+      </div>
+    </div>
+
+    <div id="character1" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close-btn">✖</a>
+        <h2>Kael, el Errante</h2>
+        <p>Guerrero de mirada fría y pasado desconocido.</p>
+        <img src="https://images.unsplash.com/photo-1611605698330-f676dc08a513?auto=format&fit=crop&w=800&q=80" alt="Kael" />
+      </div>
+    </div>
+
+    <div id="character2" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close-btn">✖</a>
+        <h2>Lira, la Hechicera</h2>
+        <p>Maestra de ilusiones. Su poder proviene del Helix interior.</p>
+        <img src="https://images.unsplash.com/photo-1601933470934-98646967f8cf?auto=format&fit=crop&w=800&q=80" alt="Lira" />
+      </div>
+    </div>
+
+    <div id="character3" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close-btn">✖</a>
+        <h2>Draven, el Forjador</h2>
+        <p>Un inventor renegado capaz de moldear energía pura con sus manos.</p>
+        <img src="https://images.unsplash.com/photo-1633296208191-91f79cb0d2ec?auto=format&fit=crop&w=800&q=80" alt="Draven" />
+      </div>
+    </div>
+  </main>
+
+  <div class="bg-overlay"></div>
+  <script src="script.js"></script>
 </body>
 </html>

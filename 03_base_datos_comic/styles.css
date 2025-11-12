@@ -1,399 +1,365 @@
-/* Variables CSS para colores y fuentes */
+/* ==============================
+   VARIABLES PRINCIPALES
+============================== */
 :root {
-    --netflix-red: #e50914;
-    --netflix-dark: #141414;
-    --netflix-light-dark: #1f1f1f;
-    --text-color-light: #ffffff;
-    --text-color-gray: #a3a3a3;
-    --font-family-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --sidebar-width: 250px;
-    --item-card-width: 200px;
-    --item-card-height: 120px;
+  --netflix-red: #e50914;
+  --netflix-dark: #141414;
+  --netflix-light-dark: #1f1f1f;
+  --text-color-light: #ffffff;
+  --text-color-gray: #a3a3a3;
+  --font-family-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* ==============================
+   RESET Y BASE
+============================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-family-primary);
-    background-color: var(--netflix-dark);
-    color: var(--text-color-light);
-    overflow-x: hidden;
+  font-family: var(--font-family-primary);
+  background-color: var(--netflix-dark);
+  color: var(--text-color-light);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-#app {
-    display: flex;
-    min-height: 100vh;
+/* ==============================
+   EFECTO DE FONDO CÓSMICO
+============================== */
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, rgba(229, 9, 20, 0.2), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 0, 0.1), transparent 60%);
+  filter: blur(60px);
+  animation: helixEnergy 20s ease-in-out infinite alternate;
+  z-index: 0;
+  pointer-events: none;
 }
 
-#sidebar-nav {
-    width: var(--sidebar-width);
-    background-color: var(--netflix-light-dark);
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    z-index: 1000;
+@keyframes helixEnergy {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
-#sidebar-nav .logo {
-    margin-bottom: 30px;
-    padding: 0 20px;
+/* ==============================
+   HEADER PRINCIPAL
+============================== */
+#main-header {
+  width: 100%;
+  background: #000;
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  position: relative;
+  transition: top 0.4s ease, background 0.5s ease;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.2);
 }
 
-#sidebar-nav .logo img {
-    width: 120px;
-    height: auto;
+#main-header.hidden {
+  top: -100px;
 }
 
-#sidebar-nav nav {
-    flex-grow: 1;
-    width: 100%;
+#main-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.08), transparent 70%);
+  z-index: 0;
 }
 
-#sidebar-nav ul {
-    list-style: none;
-    padding: 0;
+#main-header > * {
+  position: relative;
+  z-index: 2;
 }
 
-#sidebar-nav ul li {
-    width: 100%;
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
 }
 
-#sidebar-nav ul li a {
-    display: block;
-    padding: 15px 25px;
-    color: var(--text-color-gray);
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    border-left: 5px solid transparent;
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--netflix-red);
+  margin-right: 10px;
 }
 
-#sidebar-nav ul li a:hover {
-    color: var(--text-color-light);
-    background-color: rgba(255, 255, 255, 0.1);
+.username {
+  color: var(--text-color-gray);
+  font-size: 1em;
 }
 
-#sidebar-nav ul li a.active {
-    color: var(--text-color-light);
-    background-color: var(--netflix-red);
-    border-left-color: var(--netflix-red);
-    font-weight: bold;
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
 }
 
-.user-profile {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: auto;
+.main-nav ul li a {
+  color: var(--text-color-gray);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-    object-fit: cover;
-    border: 2px solid var(--netflix-red);
+.main-nav ul li a:hover {
+  color: var(--text-color-light);
 }
 
-.user-profile span {
-    color: var(--text-color-light);
-    font-size: 1em;
+.main-nav ul li a.active {
+  color: var(--netflix-red);
+  font-weight: bold;
 }
 
+.logo-text {
+  color: var(--text-color-light);
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
 #main-content {
-    margin-left: var(--sidebar-width);
-    flex-grow: 1;
-    padding: 20px 40px;
-    position: relative;
-    z-index: 1;
+  margin-top: 30px;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
 }
 
+/* ==============================
+   HERO PRINCIPAL
+============================== */
 #hero-section {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 50px;
-    background-color: #000;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.hero-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
 }
 
 .hero-backdrop img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(60%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%) saturate(120%);
 }
 
 .hero-details {
-    position: relative;
-    z-index: 2;
-    padding: 40px;
-    max-width: 50%;
-    color: var(--text-color-light);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  max-width: 50%;
 }
 
-#hero-section h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
+.hero-details h1 {
+  font-size: 3em;
+  color: var(--text-color-light);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-#hero-section p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin-bottom: 30px;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 15px;
+.hero-details p {
+  font-size: 1.2em;
+  margin: 20px 0;
+  color: var(--text-color-gray);
 }
 
 .hero-actions button {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.hero-actions .play-button {
-    background-color: var(--text-color-light);
-    color: var(--netflix-dark);
+.play-button {
+  background: #fff;
+  color: #000;
+}
+.play-button:hover {
+  transform: scale(1.05);
 }
 
-.hero-actions .play-button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+.info-button {
+  background: rgba(229, 9, 20, 0.8);
+  color: #fff;
+  margin-left: 10px;
+}
+.info-button:hover {
+  transform: scale(1.05);
+  background: rgba(229, 9, 20, 1);
 }
 
-.hero-actions .info-button {
-    background-color: rgba(109, 109, 110, 0.7);
-    color: var(--text-color-light);
+/* ==============================
+   SECCIÓN LORE
+============================== */
+#lore-section {
+  text-align: center;
+  margin-top: 100px;
 }
 
-.hero-actions .info-button:hover {
-    background-color: rgba(109, 109, 110, 0.5);
+#lore-section h2 {
+  color: var(--netflix-red);
+  font-size: 2.5em;
+  margin-bottom: 15px;
 }
 
-.play-button::before {
-    content: '▶';
-    margin-right: 8px;
-    font-size: 1.2em;
+#lore-section p {
+  max-width: 800px;
+  margin: 20px auto;
+  color: var(--text-color-gray);
+  line-height: 1.8;
 }
 
-.info-button::before {
-    content: 'i';
-    margin-right: 8px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.2em;
+#lore-section img {
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
 }
 
+/* ==============================
+   SEPARADOR
+============================== */
+.section-divider {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--netflix-red), transparent);
+  margin: 60px 0;
+  border-radius: 2px;
+}
+
+/* ==============================
+   CARRUSELES
+============================== */
 .content-row {
-    margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .content-row h2 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    color: var(--text-color-light);
+  margin-bottom: 20px;
+  font-size: 2em;
 }
 
 .carousel {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding-bottom: 15px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--netflix-red) var(--netflix-light-dark);
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-behavior: smooth;
+  padding-bottom: 15px;
 }
 
 .carousel::-webkit-scrollbar {
-    height: 8px;
-}
-
-.carousel::-webkit-scrollbar-track {
-    background: var(--netflix-light-dark);
-    border-radius: 10px;
+  height: 8px;
 }
 
 .carousel::-webkit-scrollbar-thumb {
-    background-color: var(--netflix-red);
-    border-radius: 10px;
-    border: 2px solid var(--netflix-light-dark);
+  background-color: var(--netflix-red);
+  border-radius: 10px;
 }
 
 .item-card {
-    flex: 0 0 auto;
-    width: var(--item-card-width);
-    height: var(--item-card-height);
-    margin-right: 10px;
-    background-color: var(--netflix-light-dark);
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex: 0 0 200px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .item-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
 }
 
 .item-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    z-index: 5;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
 }
 
-.progress-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 5px;
-    background-color: var(--netflix-red);
-    border-radius: 0 0 5px 5px;
+.item-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 10px;
 }
 
-@media (max-width: 1200px) {
-    #hero-section {
-        height: 500px;
-    }
-    #hero-section h1 {
-        font-size: 3em;
-    }
-    #hero-section p {
-        font-size: 1.1em;
-    }
+/* ==============================
+   MODALES
+============================== */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 100;
+}
+.modal:target {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content {
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+}
+.close-btn:hover {
+  color: var(--netflix-red);
 }
 
-@media (max-width: 992px) {
-    :root {
-        --sidebar-width: 180px;
-        --item-card-width: 180px;
-        --item-card-height: 100px;
-    }
-    #main-content {
-        padding: 15px 25px;
-    }
-    #hero-section {
-        height: 400px;
-    }
-    #hero-section h1 {
-        font-size: 2.5em;
-    }
-    #hero-section p {
-        font-size: 1em;
-    }
-    .hero-actions button {
-        padding: 12px 20px;
-        font-size: 1em;
-    }
-}
-
+/* ==============================
+   MEDIA QUERIES
+============================== */
 @media (max-width: 768px) {
-    #sidebar-nav {
-        width: 80px;
-        padding: 10px 0;
-    }
-    #sidebar-nav .logo img {
-        width: 60px;
-    }
-    #sidebar-nav nav ul li a {
-        font-size: 0.8em;
-        padding: 10px 5px;
-        text-align: center;
-    }
-    #sidebar-nav nav ul li a span {
-        display: none;
-    }
-    .user-profile {
-        flex-direction: column;
-        padding: 10px 5px;
-    }
-    .user-profile img {
-        margin-right: 0;
-        margin-bottom: 5px;
-    }
-    .user-profile span {
-        font-size: 0.8em;
-    }
-
-    #main-content {
-        margin-left: 80px;
-        padding: 10px 15px;
-    }
-    #hero-section {
-        height: 300px;
-    }
-    #hero-section h1 {
-        font-size: 2em;
-    }
-    #hero-section p {
-        font-size: 0.9em;
-        margin-bottom: 20px;
-        max-width: 80%;
-    }
-    .hero-details {
-        padding: 20px;
-    }
-    .content-row h2 {
-        font-size: 1.5em;
-    }
-}
-
-@media (max-width: 768px) {
-    #sidebar-nav nav ul li a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    #sidebar-nav nav ul li a::before {
-        content: '';
-        font-size: 1.5em;
-        margin-bottom: 5px;
-    }
-    #sidebar-nav nav ul li a span {
-        display: block;
-    }
-    #sidebar-nav nav ul li:nth-child(1) a::before { content: '🏠'; }
-    #sidebar-nav nav ul li:nth-child(2) a::before { content: '🔍'; }
-    #sidebar-nav nav ul li:nth-child(3) a::before { content: '📖'; }
-    #sidebar-nav nav ul li:nth-child(4) a::before { content: '🦸'; }
-    #sidebar-nav nav ul li:nth-child(5) a::before { content: '👤'; }
-    #sidebar-nav nav ul li:nth-child(6) a::before { content: '💡'; }
+  .main-nav ul {
+    gap: 20px;
+  }
+  .hero-details {
+    max-width: 80%;
+    left: 20px;
+  }
+  .logo-text {
+    display: none;
+  }
 }
