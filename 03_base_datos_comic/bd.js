@@ -10,9 +10,16 @@ let comic =
   "personajes": [
     {
       "nombre":"Juanes",
-      "descripcion":"Lorem...",
-      "imagen":"img", 
-    }
+      "descripción":"Informacion de relleno",
+      "imagen":"Mwuehehehe Cat.jpeg", 
+    },
+
+    {
+      "nombre":"Entidad",
+      "descripción":"Informacion de relleno",
+      "imagen":"Mwuehehehe Cat.jpeg", 
+    },
+
   ],
   "capitulos": [
     {
