@@ -64,6 +64,13 @@ let comic = {
       nombre: "El Descubrimiento 3",
       descripcion: "Dan Jukes",
       portada: "Mwuehehehe Cat.jpeg"
+    },
+
+    {
+      id: "chapter3",
+      nombre: "El Descubrimiento 3",
+      descripcion: "Dan Jukes",
+      portada: "Mwuehehehe Cat.jpeg"
     }
   ]
 };
