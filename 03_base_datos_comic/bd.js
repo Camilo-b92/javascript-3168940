@@ -1,76 +1,51 @@
-let comic = {
+export let comic = {
   nombreComic: "Cuerdas del Destino",
   numeroEpisodios: 3,
-  genero: "Ficción",
-  sinopsis: "Hola, este es mi comic",
+  genero: "Ficción / Fantasia Urbana",
+  sinopsis: "En un mundo donde la música puede alterar el destino, un grupo de jóvenes descubre que sus canciones despiertan antiguas entidades que controlan el tejido de la realidad.",
   autores: ["Bryhan", "Gabriel", "Camilo"],
-  portada: "Mwuehehehe Cat.jpeg",
+  portada: "portada.jpg",
   year: 2025,
 
   personajes: [
-    {
-      id: "character1",
-      nombre: "Juanes",
-      descripcion: "Informacion de relleno",
-      imagen: "Mwuehehehe Cat.jpeg"
-    },
-    {
-      id: "character2",
-      nombre: "Entidad",
-      descripcion: "Informacion de relleno",
-      imagen: "Mwuehehehe Cat.jpeg"
-    },
-    {
-      id: "character3",
-      nombre: "Samuel",
-      descripcion: "Explorador humano con gran instinto y determinación.",
-      imagen: "Mwuehehehe Cat.jpeg"
-    },
-    {
-      id: "character4",
-      nombre: "Valeria",
-      descripcion: "Humana estratega, calmada y precisa en situaciones críticas.",
-      imagen: "Mwuehehehe Cat.jpeg"
-    },
-    {
-      id: "character5",
-      nombre: "Ruben",
-      descripcion: "Arquero humano con puntería excepcional y sentido del deber.",
-      imagen: "Mwuehehehe Cat.jpeg"
-    },
-    {
-      id: "character6",
-      nombre: "Elena",
-      descripcion: "Investigadora humana especializada en fenómenos del Helix.",
-      imagen: "Mwuehehehe Cat.jpeg"
-    }
+    { id: "juanes", nombre: "Juanes", descripcion: "Guitarrista prodigio con la habilidad de ver hilos del destino al tocar.", imagen: "personajes/juanes.jpg" },
+    { id: "entidad", nombre: "La Entidad", descripcion: "Ser ancestral que se manifiesta a través de melodías prohibidas.", imagen: "personajes/entidad.jpg" },
+    { id: "samuel", nombre: "Samuel", descripcion: "Baterista y estratega del grupo.", imagen: "personajes/samuel.jpg" },
+    { id: "valeria", nombre: "Valeria", descripcion: "Vocalista principal con voz hipnótica.", imagen: "personajes/valeria.jpg" },
+    { id: "ruben", nombre: "Rubén", descripcion: "Bajista y hacker del sonido.", imagen: "personajes/ruben.jpg" },
+    { id: "elena", nombre: "Elena", descripcion: "Tecladista e investigadora.", imagen: "personajes/elena.jpg" }
   ],
 
   capitulos: [
     {
-      id: "chapter1",
-      nombre: "El Descubrimiento",
-      descripcion: "Dan Jukes",
-      portada: "Mwuehehehe Cat.jpeg"
+      id: "cap1",
+      nombre: "El Primer Acorde",
+      descripcion: "Un concierto clandestino despierta accidentalmente una entidad dormida. Todo cambia en una sola noche.",
+      portada: "capitulos/cap1-portada.jpg",
+      video: "https://www.youtube.com/embed/3tT9q2uJq6c",
+      genero: "Ficción / Fantasía Urbana",
+      years: "2025",
+      autores: "Bryhan"
     },
     {
-      id: "chapter2",
-      nombre: "El Descubrimiento 2",
-      descripcion: "Dan Jukes",
-      portada: "Mwuehehehe Cat.jpeg"
+      id: "cap2",
+      nombre: "Hilos Rotos",
+      descripcion: "El grupo descubre que cada canción que tocan altera el destino de alguien. Ahora son cazados.",
+      portada: "capitulos/cap2-portada.jpg",
+      video: "https://www.youtube.com/embed/3g0Z0qMhKqU",
+      genero: "Ficción / Fantasía Urbana",
+      years: "2025",
+      autores: "Gabriel"
     },
     {
-      id: "chapter3",
-      nombre: "El Descubrimiento 3",
-      descripcion: "Dan Jukes",
-      portada: "Mwuehehehe Cat.jpeg"
-    },
-
-    {
-      id: "chapter3",
-      nombre: "El Descubrimiento 3",
-      descripcion: "Dan Jukes",
-      portada: "Mwuehehehe Cat.jpeg"
+      id: "cap3",
+      nombre: "Sinfonía Final",
+      descripcion: "La confrontación definitiva. Una sola canción decidirá si el mundo sigue existiendo tal como lo conocemos.",
+      portada: "capitulos/cap3-portada.jpg",
+      video: "https://www.youtube.com/embed/8Z1Z0Z0q0Z0",
+      genero: "Ficción / Fantasía Urbana",
+      years: "2025",
+      autores: "Camilo"
     }
   ]
 };

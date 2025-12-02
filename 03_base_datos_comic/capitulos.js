@@ -1,31 +1,58 @@
-const episodesContainer = document.getElementById("episodes-page-container");
-const modalsContainer = document.getElementById("modals-container");
+import { comic } from './bd.js';
 
-comic.capitulos.forEach(c => {
+const urlParams = new URLSearchParams(window.location.search);
+const capituloId = urlParams.get('id');
 
-  const card = document.createElement("a");
-  card.classList.add("episode-card");
-  card.href = `#modal-${c.id}`;
-  card.innerHTML = `
-    <img src="${c.portada}" alt="${c.nombre}">
-    <div class="episode-info">
-      <h3>${c.nombre}</h3>
-      <p>${c.descripcion}</p>
-    </div>
-  `;
-  episodesContainer.appendChild(card);
+const detalleContainer = document.getElementById('detalle-capitulo');
+const listaSection = document.getElementById('lista-capitulos');
+const gridCapitulos = document.getElementById('episodes-container');
 
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  modal.id = `modal-${c.id}`;
-  modal.innerHTML = `
-    <div class="modal-content">
-      <a href="#" class="close-btn">×</a>
-      <h2>${c.nombre}</h2>
-      <p>${c.descripcion}</p>
-      <img src="${c.portada}" alt="${c.nombre}">
-    </div>
-  `;
+if (capituloId) {
+  const cap = comic.capitulos.find(c => c.id === capituloId);
 
-  modalsContainer.appendChild(modal);
-});
+  if (!cap) {
+    detalleContainer.innerHTML = `<p style="text-align:center; color:#ff4500; font-size:2.5rem; padding:120px;">Capítulo no encontrado</p>`;
+  } else {
+    const videoHTML = cap.video
+      ? `<iframe width="100%" height="520" src="${cap.video}" title="${cap.nombre}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      : `<div class="video-placeholder"><p>Video en producción</p></div>`;
+
+    detalleContainer.innerHTML = `
+      <div class="card">
+        <div class="video-container">
+          ${videoHTML}
+        </div>
+        <div class="info">
+          <h2>${cap.nombre}</h2>
+          <p><strong>Género:</strong> ${cap.genero}</p>
+          <p><strong>Año:</strong> ${cap.years}</p>
+          <p><strong>Autor:</strong> ${cap.autores}</p>
+          <p>${cap.descripcion}</p>
+          <a href="capitulos.html" class="back-btn">Volver a capítulos</a>
+        </div>
+      </div>
+    `;
+
+    document.documentElement.style.setProperty('--color-principal', '#ff4500');
+    document.title = `${cap.nombre} - Helikón`;
+  }
+
+  listaSection.style.display = 'none';
+} else {
+  detalleContainer.innerHTML = '';
+  listaSection.style.display = 'block';
+
+  comic.capitulos.forEach(cap => {
+    const card = document.createElement('a');
+    card.href = `capitulos.html?id=${cap.id}`;
+    card.className = 'episode-card';
+    card.innerHTML = `
+      <img src="${cap.portada}" alt="${cap.nombre}">
+      <div class="info">
+        <h3>${cap.nombre}</h3>
+        <p>${cap.descripcion}</p>
+      </div>
+    `;
+    gridCapitulos.appendChild(card);
+  });
+}

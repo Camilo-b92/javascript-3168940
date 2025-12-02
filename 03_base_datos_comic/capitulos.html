@@ -4,24 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capítulos - Helikón</title>
-
   <link rel="stylesheet" href="styles-capitulos.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <header id="main-header">
     <div class="header-left">
-      <img src="Mwuehehehe Cat.jpeg" alt="Perfil de Usuario" class="user-avatar" />
+      <img src="Mwuehehehe Cat.jpeg" alt="Perfil" class="user-avatar" />
       <span class="username">Usuario</span>
     </div>
 
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#search">Buscar</a></li>
         <li><a href="capitulos.html" class="active">Capítulos</a></li>
         <li><a href="personajes.html">Personajes</a></li>
-        <li><a href="#lore-section">Helikón</a></li>
+        <li><a href="index.html#lore-section">Helikón</a></li>
       </ul>
     </nav>
 
@@ -32,21 +31,17 @@
 
   <main id="main-content">
 
-    <section class="content-row">
+    <section id="detalle-capitulo" class="detalle-section"></section>
+
+    <section id="lista-capitulos" class="lista-section">
       <h2>Todos los Capítulos</h2>
-
-      <div id="episodes-page-container">
-      </div>
+      <div id="episodes-container" class="grid-capitulos"></div>
     </section>
-
-    <div id="modals-container"></div>
 
   </main>
 
   <div class="bg-overlay"></div>
 
-  <script src="bd.js"></script>
-  <script src="capitulos.js"></script>
-
+  <script type="module" src="capitulos.js"></script>
 </body>
 </html>

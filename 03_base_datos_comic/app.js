@@ -1,12 +1,14 @@
+import { comic } from './bd.js';
+
 function cargarHero() {
   document.getElementById("hero-title").textContent = comic.nombreComic;
   document.getElementById("hero-description").textContent = comic.sinopsis;
-  document.getElementById("hero-image").src = comic.portada;
+  document.getElementById("hero-image").src = comic.portada || 'Mwuehehehe Cat.jpeg';
 }
 
 function cargarLore() {
   document.getElementById("lore-text").textContent = comic.sinopsis;
-  document.getElementById("lore-image").src = comic.portada;
+  document.getElementById("lore-image").src = comic.portada || 'Mwuehehehe Cat.jpeg';
 }
 
 function cargarCapitulos() {
@@ -15,8 +17,8 @@ function cargarCapitulos() {
 
   comic.capitulos.forEach(cap => {
     const card = document.createElement("a");
-    card.classList.add("item-card", "fade-in");
-    card.href = `#${cap.id}`;
+    card.href = `capitulos.html?id=${cap.id}`;
+    card.classList.add("item-card");
     card.innerHTML = `
       <img src="${cap.portada}" alt="${cap.nombre}" />
       <div class="item-info">
@@ -34,8 +36,8 @@ function cargarPersonajes() {
 
   comic.personajes.forEach(per => {
     const card = document.createElement("a");
-    card.classList.add("item-card", "fade-in");
-    card.href = `#${per.id}`;
+    card.href = `personajes.html?id=${per.id}`;
+    card.classList.add("item-card");
     card.innerHTML = `
       <img src="${per.imagen}" alt="${per.nombre}" />
       <div class="item-info">
@@ -47,45 +49,27 @@ function cargarPersonajes() {
   });
 }
 
-function cargarModales() {
-  const contenedor = document.getElementById("modals-container");
-  contenedor.innerHTML = "";
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  const header = document.getElementById('main-header');
 
-  comic.capitulos.forEach(cap => {
-    const modal = document.createElement("div");
-    modal.id = cap.id;
-    modal.classList.add("modal");
-    modal.innerHTML = `
-      <div class="modal-content">
-        <a href="#" class="close-btn">✖</a>
-        <h2>${cap.nombre}</h2>
-        <p>${cap.descripcion}</p>
-        <img src="${cap.portada}" alt="${cap.nombre}">
-      </div>
-    `;
-    contenedor.appendChild(modal);
-  });
+  if (currentScroll <= 0) {
+    header.classList.remove('hidden');
+    return;
+  }
 
-  comic.personajes.forEach(per => {
-    const modal = document.createElement("div");
-    modal.id = per.id;
-    modal.classList.add("modal");
-    modal.innerHTML = `
-      <div class="modal-content">
-        <a href="#" class="close-btn">✖</a>
-        <h2>${per.nombre}</h2>
-        <p>${per.descripcion}</p>
-        <img src="${per.imagen}" alt="${per.nombre}">
-      </div>
-    `;
-    contenedor.appendChild(modal);
-  });
-}
+  if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
+    header.classList.add('hidden');
+  } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
+    header.classList.remove('hidden');
+  }
+  lastScroll = currentScroll;
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarHero();
   cargarLore();
   cargarCapitulos();
   cargarPersonajes();
-  cargarModales();
 });
