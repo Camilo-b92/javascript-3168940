@@ -1,66 +1,51 @@
 export let comic = {
-  nombreComic: "HUELLAS DE RITMO",
+  nombreComic: "Cuerdas del Destino",
   numeroEpisodios: 3,
-  genero: "Fantasía / Aventura / Musical",
-  sinopsis: "Narra la historia de Isabel, una niña prodigiosa en el baile que vive en una isla junto a su pueblo. Este lugar enfrenta el desafío de olvidar su herencia musical, lo cual afecta profundamente al guardián del pueblo.",
-  autores: ["Carolina", "Valentina", "Jimena"],
-  portada: "ejemplo.jpg", // Asegúrate de tener esta imagen
+  genero: "Ficción / Fantasia Urbana",
+  sinopsis: "En un mundo donde la música puede alterar el destino, un grupo de jóvenes descubre que sus canciones despiertan antiguas entidades que controlan el tejido de la realidad.",
+  autores: ["Bryhan", "Gabriel", "Camilo"],
+  portada: "portada.jpg",
   year: 2025,
 
   personajes: [
-    { 
-      id: "isabel", 
-      nombre: "Shakira / Isabel", 
-      descripcion: "Isabel es una niña de 10 años con una energía inagotable. Su talento innato la convierte en la mejor bailarina de su aldea, ganándose el apodo de 'Shakira'.", 
-      imagen: "shakira.png",
-      edad: "10 años"
-    },
-    { 
-      id: "lobo", 
-      nombre: "Lobo", 
-      descripcion: "El guardián del pueblo, un hombre sabio y fuerte que ha dedicado su vida a proteger las tradiciones y la herencia musical de su gente.", 
-      imagen: "lobo.png",
-      edad: "55 años"
-    },
-    { 
-      id: "oscuridad", 
-      nombre: "La Oscuridad", 
-      descripcion: "Una entidad misteriosa y difusa que representa la amenaza del olvido. Se alimenta del silencio y la pérdida de las tradiciones.", 
-      imagen: "SOMBRAA.png",
-      edad: "Ancestral"
-    }
+    { id: "juanes", nombre: "Juanes", descripcion: "Guitarrista prodigio con la habilidad de ver hilos del destino al tocar.", imagen: "personajes/juanes.jpg" },
+    { id: "entidad", nombre: "La Entidad", descripcion: "Ser ancestral que se manifiesta a través de melodías prohibidas.", imagen: "personajes/entidad.jpg" },
+    { id: "samuel", nombre: "Samuel", descripcion: "Baterista y estratega del grupo.", imagen: "personajes/samuel.jpg" },
+    { id: "valeria", nombre: "Valeria", descripcion: "Vocalista principal con voz hipnótica.", imagen: "personajes/valeria.jpg" },
+    { id: "ruben", nombre: "Rubén", descripcion: "Bajista y hacker del sonido.", imagen: "personajes/ruben.jpg" },
+    { id: "elena", nombre: "Elena", descripcion: "Tecladista e investigadora.", imagen: "personajes/elena.jpg" }
   ],
 
   capitulos: [
     {
       id: "cap1",
-      nombre: "Ritmos de un Sueño",
-      descripcion: "Nace Isabel en la isla. Al recibir unas maracas que resuenan con su alma, descubre que la música es más que sonido: es magia.",
-      portada: "ejemplo.jpg",
-      video: "", // Poner URL de YouTube si existe, si no, saldrá "En producción"
-      genero: "Origen",
+      nombre: "El Primer Acorde",
+      descripcion: "Un concierto clandestino despierta accidentalmente una entidad dormida. Todo cambia en una sola noche.",
+      portada: "capitulos/cap1-portada.jpg",
+      video: "https://www.youtube.com/embed/3tT9q2uJq6c",
+      genero: "Ficción / Fantasía Urbana",
       years: "2025",
-      autores: "Carolina"
+      autores: "Bryhan"
     },
     {
       id: "cap2",
-      nombre: "El Canto Olvidado",
-      descripcion: "Años después, la isla pierde su color y música. Shakira sueña con Lobo, quien le revela la misión de proteger la herencia ancestral.",
-      portada: "ejemplo.jpg",
-      video: "",
-      genero: "Drama",
+      nombre: "Hilos Rotos",
+      descripcion: "El grupo descubre que cada canción que tocan altera el destino de alguien. Ahora son cazados.",
+      portada: "capitulos/cap2-portada.jpg",
+      video: "https://www.youtube.com/embed/3g0Z0qMhKqU",
+      genero: "Ficción / Fantasía Urbana",
       years: "2025",
-      autores: "Valentina"
+      autores: "Gabriel"
     },
     {
       id: "cap3",
-      nombre: "Ritual de Sombras",
-      descripcion: "Con un collar mágico y el pueblo reunido, se libra la batalla final. Un lobo sobrenatural emerge para ayudar a Isabel contra la Oscuridad.",
-      portada: "ejemplo.jpg",
-      video: "",
-      genero: "Clímax",
+      nombre: "Sinfonía Final",
+      descripcion: "La confrontación definitiva. Una sola canción decidirá si el mundo sigue existiendo tal como lo conocemos.",
+      portada: "capitulos/cap3-portada.jpg",
+      video: "https://www.youtube.com/embed/8Z1Z0Z0q0Z0",
+      genero: "Ficción / Fantasía Urbana",
       years: "2025",
-      autores: "Jimena"
+      autores: "Camilo"
     }
   ]
 };

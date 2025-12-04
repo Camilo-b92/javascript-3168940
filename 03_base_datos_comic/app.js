@@ -1,58 +1,67 @@
 import { comic } from './bd.js';
 
-// Cargar Hero
 function cargarHero() {
   document.getElementById("hero-title").textContent = comic.nombreComic;
-  // Usamos substring para no poner toda la sinopsis en el hero si es muy larga
-  document.getElementById("hero-description").textContent = comic.sinopsis; 
-  document.getElementById("hero-image").src = comic.portada || 'ejemplo.jpg';
+  document.getElementById("hero-description").textContent = comic.sinopsis;
+  document.getElementById("hero-image").src = comic.portada || 'Mwuehehehe Cat.jpeg';
 }
 
-// Cargar Carruseles
-function cargarListas() {
-  const contPersonajes = document.getElementById("characters-container");
-  const contCapitulos = document.getElementById("chapters-container");
+function cargarLore() {
+  document.getElementById("lore-text").textContent = comic.sinopsis;
+  document.getElementById("lore-image").src = comic.portada || 'Mwuehehehe Cat.jpeg';
+}
 
-  // Personajes
-  comic.personajes.forEach(p => {
+function cargarCapitulos() {
+  const contenedor = document.getElementById("chapters-container");
+  contenedor.innerHTML = "";
+
+  comic.capitulos.forEach(cap => {
     const card = document.createElement("a");
-    card.href = `personajes.html?id=${p.id}`;
+    card.href = `capitulos.html?id=${cap.id}`;
     card.classList.add("item-card");
     card.innerHTML = `
-      <img src="${p.imagen}" alt="${p.nombre}" />
+      <img src="${cap.portada}" alt="${cap.nombre}" />
       <div class="item-info">
-        <h3>${p.nombre}</h3>
-        <p>${p.edad}</p>
+        <h3>${cap.nombre}</h3>
+        <p>${cap.descripcion}</p>
       </div>
     `;
-    contPersonajes.appendChild(card);
-  });
-
-  // Capítulos
-  comic.capitulos.forEach(c => {
-    const card = document.createElement("a");
-    card.href = `capitulos.html?id=${c.id}`;
-    card.classList.add("item-card");
-    card.innerHTML = `
-      <img src="${c.portada}" alt="${c.nombre}" />
-      <div class="item-info">
-        <h3>${c.nombre}</h3>
-        <p>Episodio ${c.id.replace('cap','')}</p>
-      </div>
-    `;
-    contCapitulos.appendChild(card);
+    contenedor.appendChild(card);
   });
 }
 
-// Lógica del Header al hacer scroll
+function cargarPersonajes() {
+  const contenedor = document.getElementById("characters-container");
+  contenedor.innerHTML = "";
+
+  comic.personajes.forEach(per => {
+    const card = document.createElement("a");
+    card.href = `personajes.html?id=${per.id}`;
+    card.classList.add("item-card");
+    card.innerHTML = `
+      <img src="${per.imagen}" alt="${per.nombre}" />
+      <div class="item-info">
+        <h3>${per.nombre}</h3>
+        <p>${per.descripcion}</p>
+      </div>
+    `;
+    contenedor.appendChild(card);
+  });
+}
+
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
   const header = document.getElementById('main-header');
 
-  if (currentScroll > lastScroll && currentScroll > 50) {
+  if (currentScroll <= 0) {
+    header.classList.remove('hidden');
+    return;
+  }
+
+  if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
     header.classList.add('hidden');
-  } else {
+  } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
     header.classList.remove('hidden');
   }
   lastScroll = currentScroll;
@@ -60,5 +69,7 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarHero();
-  cargarListas();
+  cargarLore();
+  cargarCapitulos();
+  cargarPersonajes();
 });

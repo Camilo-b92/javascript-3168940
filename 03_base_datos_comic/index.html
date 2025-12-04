@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huellas de Ritmo - Inicio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Helikón - Cuerdas del Destino</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <header id="main-header">
     <div class="header-left">
-      <img src="logo.png" alt="Logo" class="logo-img" />
-      <span class="logo-text">SHARUM</span>
+      <img src="Mwuehehehe Cat.jpeg" alt="Perfil de Usuario" class="user-avatar" />
+      <span class="username">Usuario</span>
     </div>
 
     <nav class="main-nav">
@@ -19,43 +19,59 @@
         <li><a href="index.html" class="active">Inicio</a></li>
         <li><a href="capitulos.html">Capítulos</a></li>
         <li><a href="personajes.html">Personajes</a></li>
+        <li><a href="#lore-section">Helikón</a></li>
       </ul>
     </nav>
 
     <div class="header-right">
-      <!-- Buscador decorativo -->
-      <input type="text" placeholder="Buscar..." style="padding:5px; border-radius:15px; border:none; outline:none;">
+      <h1 class="logo-text">HELIKÓN</h1>
     </div>
   </header>
 
-  <main>
-    <!-- HERO SECTION: Carga desde JS -->
+  <main id="main-content">
+
     <section id="hero-section">
       <div class="hero-backdrop">
-        <img id="hero-image" src="" alt="Portada" />
+        <img id="hero-image" src="" alt="Portada principal" />
       </div>
-      <div class="hero-details">
+      <div class="hero-details fade-in">
         <h1 id="hero-title">Cargando...</h1>
         <p id="hero-description">Cargando...</p>
         <div class="hero-actions">
-          <button class="btn-primary">Ver Ahora</button>
-          <button class="btn-secondary">Más Información</button>
+          <button class="play-button">Reproducir</button>
+          <button class="info-button">Más información</button>
         </div>
       </div>
     </section>
 
-    <section class="content-row">
-      <h2>Personajes Principales</h2>
-      <div class="carousel" id="characters-container"></div>
+    <section id="lore-section">
+      <div class="lore-container slide-up">
+        <h2>El Universo de Helikón</h2>
+        <p id="lore-text">Cargando lore del universo...</p>
+        <img id="lore-image" src="" alt="Imagen del universo Helikón" />
+      </div>
     </section>
 
-    <section class="content-row">
+    <div class="section-divider"></div>
+
+    <section class="content-row" id="chapters">
       <h2>Capítulos</h2>
-      <div class="carousel" id="chapters-container"></div>
+      <div class="carousel" id="chapters-container">
+      </div>
     </section>
+
+    <section class="content-row" id="characters">
+      <h2>Personajes Principales</h2>
+      <div class="carousel" id="characters-container">
+      </div>
+    </section>
+
+    <div id="modals-container"></div>
+
   </main>
 
   <div class="bg-overlay"></div>
+
   <script type="module" src="app.js"></script>
 </body>
 </html>

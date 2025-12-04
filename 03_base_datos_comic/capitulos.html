@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capítulos - Huellas de Ritmo</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Estilos inline para el reproductor de video del detalle */
-    .video-wrapper {
-      width: 100%; height: 400px; background: black;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 15px; margin-bottom: 30px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    }
-    .chapter-detail { max-width: 900px; margin: 120px auto; padding: 0 20px; }
-    .chapter-meta { display: flex; gap: 20px; color: var(--main-color); font-weight: bold; margin-bottom: 20px; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capítulos - Helikón</title>
+  <link rel="stylesheet" href="styles-capitulos.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <header id="main-header">
     <div class="header-left">
-      <img src="logo.png" class="logo-img" alt="Logo">
-      <span class="logo-text">SHARUM</span>
+      <img src="Mwuehehehe Cat.jpeg" alt="Perfil" class="user-avatar" />
+      <span class="username">Usuario</span>
     </div>
+
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="capitulos.html" class="active">Capítulos</a></li>
         <li><a href="personajes.html">Personajes</a></li>
+        <li><a href="index.html#lore-section">Helikón</a></li>
       </ul>
     </nav>
+
+    <div class="header-right">
+      <h1 class="logo-text">HELIKÓN</h1>
+    </div>
   </header>
 
-  <main>
-    <section id="detalle-capitulo"></section>
+  <main id="main-content">
 
-    <section id="lista-capitulos" class="content-row">
-      <h2 style="text-align:center; margin-bottom:50px;">Todos los Episodios</h2>
-      <div id="grid-capitulos" class="grid-container"></div>
+    <section id="detalle-capitulo" class="detalle-section"></section>
+
+    <section id="lista-capitulos" class="lista-section">
+      <h2>Todos los Capítulos</h2>
+      <div id="episodes-container" class="grid-capitulos"></div>
     </section>
+
   </main>
 
   <div class="bg-overlay"></div>
+
   <script type="module" src="capitulos.js"></script>
 </body>
 </html>

@@ -1,61 +1,47 @@
---- START OF FILE personajes.html ---
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personajes - Huellas de Ritmo</title>
-  <link rel="stylesheet" href="personajes.css">
-  <style>
-    
-    .detail-view {
-      max-width: 1000px;
-      margin: 120px auto;
-      background: var(--bg-card);
-      border-radius: 20px;
-      padding: 40px;
-      display: flex; gap: 40px;
-      align-items: center;
-      border: 1px solid var(--main-color);
-    }
-    .detail-img { width: 40%; border-radius: 10px; }
-    .detail-info h2 { font-size: 3rem; color: var(--main-color); margin-bottom: 20px; }
-    .back-btn { 
-      display: inline-block; margin-top: 20px; padding: 10px 20px; 
-      background: #333; color: white; text-decoration: none; border-radius: 5px; 
-    }
-    @media(max-width:768px){ .detail-view{ flex-direction:column; margin: 100px 20px; } .detail-img{width:100%;} }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personajes - Helikón</title>
+  <link rel="stylesheet" href="styles-personajes.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <header id="main-header">
     <div class="header-left">
-      <img src="logo.png" class="logo-img" alt="Logo">
-      <span class="logo-text">SHARUM</span>
+      <img src="Mwuehehehe Cat.jpeg" alt="Perfil" class="user-avatar" />
+      <span class="username">Usuario</span>
     </div>
+
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="capitulos.html">Capítulos</a></li>
         <li><a href="personajes.html" class="active">Personajes</a></li>
+        <li><a href="index.html#lore-section">Helikón</a></li>
       </ul>
     </nav>
+
+    <div class="header-right">
+      <h1 class="logo-text">HELIKÓN</h1>
+    </div>
   </header>
 
-  <main>
-    <!-- Contenedor Detalle (oculto por defecto) -->
-    <section id="detalle-container"></section>
+  <main id="main-content">
 
-    <!-- Contenedor Lista (visible por defecto) -->
-    <section id="lista-container" class="content-row">
-      <h2 style="text-align:center; margin-bottom:50px;">Elenco Principal</h2>
-      <div id="grid-personajes" class="grid-container"></div>
+    <section id="detalle-personaje" class="detalle-section"></section>
+
+    <section id="lista-personajes" class="lista-section">
+      <h2>Personajes Principales</h2>
+      <div id="characters-container" class="grid-personajes"></div>
     </section>
+
   </main>
 
   <div class="bg-overlay"></div>
+
   <script type="module" src="personajes.js"></script>
 </body>
 </html>
