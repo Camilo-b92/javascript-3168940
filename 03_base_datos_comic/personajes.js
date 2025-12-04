@@ -1,57 +1,52 @@
 import { comic } from './bd.js';
 
 const urlParams = new URLSearchParams(window.location.search);
-const personajeId = urlParams.get('id');
+const id = urlParams.get('id');
 
-const detalleContainer = document.getElementById('detalle-personaje');
-const listaSection = document.getElementById('lista-personajes');
-const gridPersonajes = document.getElementById('characters-container');
+const detalleDiv = document.getElementById('detalle-container');
+const listaDiv = document.getElementById('lista-container');
+const gridDiv = document.getElementById('grid-personajes');
 
-if (personajeId) {
-  const personaje = comic.personajes.find(p => p.id === personajeId);
+if (id) {
+  // --- MODO DETALLE ---
+  listaDiv.style.display = 'none'; // Ocultar lista
+  
+  const p = comic.personajes.find(item => item.id === id);
 
-  if (!personaje) {
-    detalleContainer.innerHTML = `<p style="text-align:center; color:#8a2be2; font-size:2.5rem; padding:100px;">Personaje no encontrado</p>`;
-  } else {
-    detalleContainer.innerHTML = `
-      <div class="card">
-        <div class="imagen">
-          <img src="${personaje.imagen}" alt="${personaje.nombre}">
-        </div>
-        <div class="info">
-          <h2>${personaje.nombre}</h2>
-          <p><strong>Descripción:</strong></p>
-          <p>${personaje.descripcion}</p>
-          <a href="personajes.html" class="back-btn">Volver a personajes</a>
+  if (p) {
+    detalleDiv.innerHTML = `
+      <div class="detail-view">
+        <img src="${p.imagen}" class="detail-img" alt="${p.nombre}">
+        <div class="detail-info">
+          <h2>${p.nombre}</h2>
+          <p><strong>Edad:</strong> ${p.edad}</p>
+          <p style="margin-top:20px; line-height:1.6;">${p.descripcion}</p>
+          <a href="personajes.html" class="back-btn">⬅ Volver a la lista</a>
         </div>
       </div>
     `;
-
-    document.documentElement.style.setProperty('--netflix-red', '#8a2be2');
-    document.documentElement.style.setProperty('--accent-glow', 'rgba(138, 43, 226, 0.6)');
-    document.title = `${personaje.nombre} - Helikón`;
+  } else {
+    detalleDiv.innerHTML = `<h2 style="text-align:center; margin-top:150px;">Personaje no encontrado</h2>`;
   }
 
-  listaSection.style.display = 'none';
-
 } else {
-  detalleContainer.innerHTML = '';
-  listaSection.style.display = 'block';
-
-  comic.personajes.forEach(per => {
-    const card = document.createElement('a');
-    card.href = `personajes.html?id=${per.id}`;
-    card.className = 'character-card';
+  // --- MODO LISTA ---
+  detalleDiv.innerHTML = '';
+  
+  comic.personajes.forEach(p => {
+    const card = document.createElement("a");
+    card.href = `personajes.html?id=${p.id}`;
+    card.className = "item-card";
+    // Ajuste de tamaño para la grid
+    card.style.flex = "0 0 300px"; 
+    
     card.innerHTML = `
-      <img src="${per.imagen}" alt="${per.nombre}">
-      <div class="info">
-        <h3>${per.nombre}</h3>
-        <p>${per.descripcion}</p>
+      <img src="${p.imagen}" alt="${p.nombre}">
+      <div class="item-info">
+        <h3>${p.nombre}</h3>
+        <p>${p.edad}</p>
       </div>
     `;
-    gridPersonajes.appendChild(card);
+    gridDiv.appendChild(card);
   });
-
-  document.documentElement.style.setProperty('--netflix-red', '#8a2be2');
-  document.documentElement.style.setProperty('--accent-glow', 'rgba(138, 43, 226, 0.6)');
 }

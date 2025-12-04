@@ -1,58 +1,60 @@
 import { comic } from './bd.js';
 
 const urlParams = new URLSearchParams(window.location.search);
-const capituloId = urlParams.get('id');
+const id = urlParams.get('id');
 
-const detalleContainer = document.getElementById('detalle-capitulo');
-const listaSection = document.getElementById('lista-capitulos');
-const gridCapitulos = document.getElementById('episodes-container');
+const detalleDiv = document.getElementById('detalle-capitulo');
+const listaDiv = document.getElementById('lista-capitulos');
+const gridDiv = document.getElementById('grid-capitulos');
 
-if (capituloId) {
-  const cap = comic.capitulos.find(c => c.id === capituloId);
+if (id) {
+  // MODO DETALLE
+  listaDiv.style.display = 'none';
+  const c = comic.capitulos.find(item => item.id === id);
 
-  if (!cap) {
-    detalleContainer.innerHTML = `<p style="text-align:center; color:#ff4500; font-size:2.5rem; padding:120px;">Capítulo no encontrado</p>`;
-  } else {
-    const videoHTML = cap.video
-      ? `<iframe width="100%" height="520" src="${cap.video}" title="${cap.nombre}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      : `<div class="video-placeholder"><p>Video en producción</p></div>`;
+  if (c) {
+    // Si hay link de video real, usa iframe, si no, un placeholder
+    const player = c.video 
+      ? `<iframe width="100%" height="100%" src="${c.video}" frameborder="0" allowfullscreen></iframe>`
+      : `<h3 style="color:gray;">Video no disponible</h3>`;
 
-    detalleContainer.innerHTML = `
-      <div class="card">
-        <div class="video-container">
-          ${videoHTML}
+    detalleDiv.innerHTML = `
+      <div class="chapter-detail">
+        <div class="video-wrapper">
+          ${player}
         </div>
-        <div class="info">
-          <h2>${cap.nombre}</h2>
-          <p><strong>Género:</strong> ${cap.genero}</p>
-          <p><strong>Año:</strong> ${cap.years}</p>
-          <p><strong>Autor:</strong> ${cap.autores}</p>
-          <p>${cap.descripcion}</p>
-          <a href="capitulos.html" class="back-btn">Volver a capítulos</a>
+        <h1>${c.nombre}</h1>
+        <div class="chapter-meta">
+          <span>${c.years}</span>
+          <span>${c.genero}</span>
+          <span>Autor: ${c.autores}</span>
         </div>
+        <p style="font-size:1.2rem; line-height:1.6;">${c.descripcion}</p>
+        <br>
+        <a href="capitulos.html" style="color:var(--text-light); text-decoration:underline;">Volver a lista</a>
       </div>
     `;
-
-    document.documentElement.style.setProperty('--color-principal', '#ff4500');
-    document.title = `${cap.nombre} - Helikón`;
+  } else {
+    detalleDiv.innerHTML = `<h2 style="text-align:center; padding-top:150px">Capítulo no encontrado</h2>`;
   }
 
-  listaSection.style.display = 'none';
 } else {
-  detalleContainer.innerHTML = '';
-  listaSection.style.display = 'block';
-
-  comic.capitulos.forEach(cap => {
-    const card = document.createElement('a');
-    card.href = `capitulos.html?id=${cap.id}`;
-    card.className = 'episode-card';
+  // MODO LISTA
+  detalleDiv.innerHTML = '';
+  
+  comic.capitulos.forEach(c => {
+    const card = document.createElement("a");
+    card.href = `capitulos.html?id=${c.id}`;
+    card.className = "item-card";
+    card.style.flex = "0 0 320px";
+    
     card.innerHTML = `
-      <img src="${cap.portada}" alt="${cap.nombre}">
-      <div class="info">
-        <h3>${cap.nombre}</h3>
-        <p>${cap.descripcion}</p>
+      <img src="${c.portada}" alt="${c.nombre}">
+      <div class="item-info">
+        <h3>${c.nombre}</h3>
+        <p>${c.descripcion.substring(0, 60)}...</p>
       </div>
     `;
-    gridCapitulos.appendChild(card);
+    gridDiv.appendChild(card);
   });
 }
