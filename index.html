@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Helikón - Cuerdas del Destino</title>
-  <meta http-equiv="refresh" content="0; url=index.html" />
+  <meta content="0; url=/03_base_datos_comic/index.html" />
   
   <style>
     body {
@@ -58,38 +58,23 @@
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 15px 35px rgba(229, 9, 20, 0.7);
     }
-    .spinner {
-      margin-top: 30px;
-      font-size: 2rem;
-      animation: spin 2s linear infinite;
-    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <h1>HELIKÓN</h1>
     <p>Bienvenido al universo de <strong>Cuerdas del Destino</strong></p>
-    <p>Redirigiendo automáticamente al sitio completo...</p>
     
-    <a href="index.html">
+    <a href="/03_base_datos_comic/index.html">
       Entrar ahora
     </a>
     
-    <div class="spinner">Loading...</div>
-  </div>
-
-  <script>
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 1000);
   </script>
 </body>
 </html>
