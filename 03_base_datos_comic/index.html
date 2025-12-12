@@ -13,16 +13,14 @@
       <img src="Mwuehehehe Cat.jpeg" alt="Perfil de Usuario" class="user-avatar" />
       <span class="username">Usuario</span>
     </div>
-
     <nav class="main-nav">
       <ul>
         <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="capitulos.html">Capítulos</a></li>
-        <li><a href="personajes.html">Personajes</a></li>
+        <li><a href="capitulos.html?list">Capítulos</a></li>
+        <li><a href="personajes.html?list">Personajes</a></li>
         <li><a href="#lore-section">Helikón</a></li>
       </ul>
     </nav>
-
     <div class="header-right">
       <h1 class="logo-text">HELIKÓN</h1>
     </div>
@@ -31,14 +29,17 @@
   <main id="main-content">
 
     <section id="hero-section">
-      <div class="hero-backdrop">
-        <img id="hero-image" src="" alt="Portada principal" />
-      </div>
+      <div class="hero-carousel" id="hero-carousel"></div>
+
+      <button class="carousel-prev" aria-label="Anterior">◄</button>
+      <button class="carousel-next" aria-label="Siguiente">►</button>
+      <div class="carousel-dots" id="hero-dots"></div>
+
       <div class="hero-details fade-in">
         <h1 id="hero-title">Cargando...</h1>
         <p id="hero-description">Cargando...</p>
         <div class="hero-actions">
-          <button class="play-button">Reproducir</button>
+          <button class="play-button">Reproducir Trailer</button>
           <button class="info-button">Más información</button>
         </div>
       </div>
@@ -54,20 +55,17 @@
 
     <div class="section-divider"></div>
 
-    <section class="content-row" id="chapters">
+    <section class="content-row fade-in" id="chapters">
       <h2>Capítulos</h2>
-      <div class="carousel" id="chapters-container">
-      </div>
+      <div class="carousel" id="chapters-container"></div>
     </section>
 
-    <section class="content-row" id="characters">
+    <section class="content-row fade-in delay-1" id="characters">
       <h2>Personajes Principales</h2>
-      <div class="carousel" id="characters-container">
-      </div>
+      <div class="carousel" id="characters-container"></div>
     </section>
 
     <div id="modals-container"></div>
-
   </main>
 
   <div class="bg-overlay"></div>
